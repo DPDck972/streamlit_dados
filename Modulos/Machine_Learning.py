@@ -9,7 +9,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.decomposition import PCA 
 
-st.info("ℹ️ℹ️ℹ️PAGINA EM CONSTRUÇÃOℹ️ℹ️ℹ️")
+st.title("Clusterização dos dados")
+st.write("Utilizando PCA e K-Means")
 
 # 2. Carregar o conjunto de dados a partir do arquivo CSV
 df = st.session_state["DataFrame"]
@@ -54,6 +55,8 @@ df['cluster'] = clusters
 # Criar um DataFrame com os componentes principais para facilitar a plotagem
 df_pca_plot = pd.DataFrame(data=df_pca, columns=['Componente Principal 1', 'Componente Principal 2'])
 df_pca_plot['cluster'] = clusters
+
+st.dataframe(df_pca_plot,height=100)
 
 # Plotar o gráfico de dispersão usando os componentes principais
 fig, ax = plt.subplots(figsize=(8, 6))
